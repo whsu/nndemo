@@ -100,7 +100,7 @@ class NeuralNetwork:
 
         loss_old = self.compute_loss(X, Y)
         if self.printfreq > 0:
-            print 0, loss_old
+            print('iter={0}, loss={1}'.format(0, loss_old))
 
         for i in range(1,self.maxiter+1):
             np.random.shuffle(indices)
@@ -116,7 +116,7 @@ class NeuralNetwork:
                 self.alpha = 1/(1.0/self.alpha+1)
             loss_old = loss_new
             if self.printfreq > 0 and i % self.printfreq == 0:
-                print i, loss_new
+                print('iter={0}, loss={1}'.format(i, loss_new))
 
     def compute_loss(self, X, Y):
         ao = self.predict(X)
